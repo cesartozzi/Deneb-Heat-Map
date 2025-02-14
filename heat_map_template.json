@@ -1,0 +1,35 @@
+{
+  "background": "#f0f0f0",
+  "data": {"name": "dataset"},
+  "title": "Daily Mortality in Brazil",
+  "config": {"view": {"strokeWidth": 0, "step": 13}, "axis": {"domain": false}},
+  "mark": {"type": "rect"},
+  "encoding": {
+    "x": {
+      "field": "day_number",
+      "type": "quantitative",
+      "title": "day of year",
+      "scale": {"domain": [1, 365]},
+      "axis": {"labelAngle": 0, "grid": true, "format": "d"}
+    },
+    "y": {"field": "year", "type": "ordinal", "title": null},
+    "color": {
+      "field": "number_of_obitos",
+      "aggregate": "sum",
+      "type": "quantitative",
+      "title": "Deaths",
+      "scale": {"scheme": "blueorange"},
+      "legend": {"title": "Deaths per Day"}
+    },
+    "tooltip": [
+      {"field": "day_number", "type": "quantitative", "title": "Day of Year"},
+      {"field": "year", "type": "ordinal", "title": "Year"},
+      {
+        "field": "number_of_obitos",
+        "aggregate": "sum",
+        "type": "quantitative",
+        "title": "Total Deaths"
+      }
+    ]
+  }
+}
